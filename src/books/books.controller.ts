@@ -1,20 +1,21 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateBookDto } from './dto/create-book.dto';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { AddBookDto } from './dto/add-book.dto';
+import { RangeBookDto } from './dto/range-book.dto';
 import { BooksService } from './books.service';
 import { Book } from './models/book.model';
 
-@Controller('books')
+@Controller('api/books')
 export class BooksController {
 
     constructor(private readonly booksService: BooksService) {}
 
     @Post()
-    create(@Body() createBookDto: CreateBookDto): Promise<Book> {
-      return this.booksService.create(createBookDto);
+    addBooks(@Body() addBooksDto: AddBookDto[]): Promise<Book[]> {
+      return this.booksService.addBooks(addBooksDto);
     }
 
-    @Get('?:limit')
-    findOne(@Param('limit') limit: number): void {
-      console.log(limit)
+    @Get()
+    showRange(@Query() query: RangeBookDto): Promise<Book[]> {
+      return this.booksService.showRange(query);
     }
 }
