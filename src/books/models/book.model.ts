@@ -10,4 +10,10 @@ export class Book extends Model<Book> { //https://stackoverflow.com/questions/71
 
   @Column({type: DataType.STRING, allowNull: false})
   author: string;
+
+  @Column({type: DataType.INTEGER, allowNull: true})
+  year: number;
+
+  @Column({type: DataType.BOOLEAN, allowNull: true, defaultValue: false})
+  read: boolean;
 }
