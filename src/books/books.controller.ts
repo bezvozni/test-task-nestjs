@@ -12,6 +12,15 @@ export class BooksController {
 
     @Post()
     addBooks(@Body() addBooksDto: AddBookDto[]): Promise<Book[]> {
+
+      addBooksDto.forEach(
+        book => {
+          if (!book.name || !book.author) {
+            throw new HttpException('Поля name и author обязательны', 400);
+          }
+        }
+      )
+
       return this.booksService.addBooks(addBooksDto);
     }
 
