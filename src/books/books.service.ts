@@ -15,9 +15,10 @@ export class BooksService {
     }
 
     //https://stackoverflow.com/questions/43115151
-    async showRange(range: RangeBookDto): Promise<Book[]> {
-        const from = Number(range.start);
-        const to = from + Number(range.limit) - 1;
+    async showRange(start, limit): Promise<Book[]> {
+        const from = start;
+        const to = from + limit - 1;
+        
         return this.bookModel.findAll({
             where: {
                 id: {
