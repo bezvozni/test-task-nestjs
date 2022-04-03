@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, Post, Query } from '@nestjs/common';
 import { AddBookDto } from './dto/add-book.dto';
 import { RangeBookDto } from './dto/range-book.dto';
 import { BooksService } from './books.service';
 import { Book } from './models/book.model';
+import { IsInt } from 'sequelize-typescript';
 
 @Controller('api/books')
 export class BooksController {
@@ -16,6 +17,22 @@ export class BooksController {
 
     @Get()
     showRange(@Query() query: RangeBookDto): Promise<Book[]> {
-      return this.booksService.showRange(query);
+
+      if (!query.start || !query.limit) {
+        throw new HttpException('Параметры start и limit обязательны', 400);
+      }
+
+      const start = Number(query.start);
+      const limit = Number(query.limit);
+    
+      if (!Number.isInteger(start) || !Number.isInteger(limit)) {
+        throw new HttpException('Параметры должны быть целыми числами', 400);
+      }
+
+      if (start < 1 || limit < 1) {
+        throw new HttpException('Параметры не могут быть меньше 1', 400);
+      }
+
+      return this.booksService.showRange(start, limit);
     }
 }
