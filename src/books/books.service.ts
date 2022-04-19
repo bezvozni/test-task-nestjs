@@ -9,21 +9,22 @@ export class BooksService {
 
     constructor(@InjectModel(Book) private readonly bookModel: typeof Book) {}
 
-    addBooks(books: AddBookDto[]): Promise<Book[]> {
-        return this.bookModel.bulkCreate(books)
+    addBooks(books: AddBookDto[]) {
+        return this.bookModel.bulkCreate(books);
     }
 
-    //https://stackoverflow.com/questions/43115151
-    async showRange(start:number, limit:number): Promise<Book[]> {
-        const from:number = start;
-        const to:number = from + limit - 1;
+    showRange(start:number, limit:number) {
+        const from = start;
+        const to = from + limit - 1;
         
+        //https://stackoverflow.com/questions/43115151
         return this.bookModel.findAll({
             where: {
                 id: {
                     [Op.between]: [from, to]
                 }
             }
-        })
+        });
     }
-}   
+
+}

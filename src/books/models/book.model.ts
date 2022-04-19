@@ -2,6 +2,7 @@ import { AutoIncrement, Column, DataType, Model, Table } from 'sequelize-typescr
 
 @Table({tableName: 'books'})
 export class Book extends Model<Book> { //https://stackoverflow.com/questions/71229913
+
   @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
   id: number;
 
@@ -16,4 +17,5 @@ export class Book extends Model<Book> { //https://stackoverflow.com/questions/71
 
   @Column({type: DataType.BOOLEAN, allowNull: true, defaultValue: false})
   read: boolean;
+
 }

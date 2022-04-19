@@ -1,8 +1,7 @@
-import { Body, Controller, Get, HttpException, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, ParseArrayPipe, Post, Query } from '@nestjs/common';
 import { AddBookDto } from './dto/add-book.dto';
-import { RangeBookDto } from './dto/range-book.dto';
+import { GetBooksDto } from './dto/get-books.dto';
 import { BooksService } from './books.service';
-import { Book } from './models/book.model';
 
 @Controller('api/books')
 export class BooksController {
@@ -10,37 +9,13 @@ export class BooksController {
     constructor(private readonly booksService: BooksService) {}
 
     @Post()
-    addBooks(@Body() addBooksDto: AddBookDto[]): Promise<Book[]> {
-
-      addBooksDto.forEach(
-        book => {
-          if (!book.name || !book.author) {
-            throw new HttpException('Поля name и author обязательны', 400);
-          }
-        }
-      )
-
+    addBooks(@Body(new ParseArrayPipe({ items: AddBookDto })) addBooksDto: AddBookDto[]) {
       return this.booksService.addBooks(addBooksDto);
     }
 
     @Get()
-    showRange(@Query() query: RangeBookDto): Promise<Book[]> {
-
-      if (!query.start || !query.limit) {
-        throw new HttpException('Параметры start и limit обязательны', 400);
-      }
-
-      const start:number = Number(query.start);
-      const limit:number = Number(query.limit);
-    
-      if (!Number.isInteger(start) || !Number.isInteger(limit)) {
-        throw new HttpException('Параметры должны быть целыми числами', 400);
-      }
-
-      if (start < 1 || limit < 1) {
-        throw new HttpException('Параметры не могут быть меньше 1', 400);
-      }
-
-      return this.booksService.showRange(start, limit);
+    showRange(@Query() query: GetBooksDto) {
+      return this.booksService.showRange(query.start, query.limit);
     }
+
 }
