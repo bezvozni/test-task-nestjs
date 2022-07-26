@@ -1,0 +1,5 @@
+- Отсутствует валидация DTO (https://docs.nestjs.com/techniques/validation)
+- Отсутствует Filters Exception (https://docs.nestjs.com/exception-filters#exception-filters)
+- Отсутствует Config Service (https://docs.nestjs.com/techniques/configuration)
+- Было бы большим полюсом имплеминтировать Serialization (https://docs.nestjs.com/techniques/serialization)
+- Отсутствуют тесты в любом их виде.  
