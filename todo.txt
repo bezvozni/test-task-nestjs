@@ -1,5 +1,11 @@
-- Отсутствует валидация DTO (https://docs.nestjs.com/techniques/validation)
-- Отсутствует Filters Exception (https://docs.nestjs.com/exception-filters#exception-filters)
-- Отсутствует Config Service (https://docs.nestjs.com/techniques/configuration)
-- Было бы большим полюсом имплеминтировать Serialization (https://docs.nestjs.com/techniques/serialization)
-- Отсутствуют тесты в любом их виде.  
+- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ DTO (https://docs.nestjs.com/techniques/validation)
+- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Filters Exception (https://docs.nestjs.com/exception-filters#exception-filters)
+- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Config Service (https://docs.nestjs.com/techniques/configuration)
+- пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Serialization (https://docs.nestjs.com/techniques/serialization)
+- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ.  
+
+- РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІР°Р»РёРґР°С†РёСЏ DTO (https://docs.nestjs.com/techniques/validation)
+- РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ Filters Exception (https://docs.nestjs.com/exception-filters#exception-filters)
+- РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ Config Service (https://docs.nestjs.com/techniques/configuration)
+- Р‘С‹Р»Рѕ Р±С‹ Р±РѕР»СЊС€РёРј РїРѕР»СЋСЃРѕРј РёРјРїР»РµРјРёРЅС‚РёСЂРѕРІР°С‚СЊ Serialization (https://docs.nestjs.com/techniques/serialization)
+- РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ С‚РµСЃС‚С‹ РІ Р»СЋР±РѕРј РёС… РІРёРґРµ.  
